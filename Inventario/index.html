@@ -3,7 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Gestión de Inventarios y Ventas</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Gestión de Inventarios y Ventas</h1>
+      <nav>
+        <button onclick="mostrarSeccion('productos')">Productos</button>
+        <button onclick="mostrarSeccion('ventas')">Ventas</button>
+        <button onclick="mostrarSeccion('resurtidos')">Resurtidos</button>
+        <button onclick="mostrarSeccion('reportes')">Reportes</button>
+      </nav>
+    </header>
+
+    <section id="productos" class="seccion">
+      <h2>Gestión de Productos</h2>
+      <form id="producto-form" onsubmit="registrarProducto(event)">
+        <input type="text" id="nombre" placeholder="Nombre" required />
+        <input type="text" id="categoria" placeholder="Categoría" required />
+        <input type="number" id="precio" placeholder="Precio" required />
+        <input type="number" id="cantidad" placeholder="Cantidad" required />
+        <button type="submit">Registrar Producto</button>
+      </form>
+      <table id="productos-tabla">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="ventas" class="seccion" style="display: none">
+      <h2>Ventas</h2>
+      <div id="venta-form">
+        <select id="producto-venta"></select>
+        <input
+          type="number"
+          id="cantidad-venta"
+          placeholder="Cantidad"
+          required
+        />
+        <button onclick="procesarVenta()">Realizar Venta</button>
+      </div>
+      <div id="tickets"></div>
+    </section>
+
+    <section id="resurtidos" class="seccion" style="display: none">
+      <h2>Resurtido de Inventario</h2>
+      <select id="producto-resurtido"></select>
+      <input
+        type="number"
+        id="cantidad-resurtido"
+        placeholder="Cantidad"
+        required
+      />
+      <button onclick="resurtirProducto()">Resurtir</button>
+    </section>
+
+    <section id="reportes" class="seccion" style="display: none">
+      <h2>Reportes de Ventas</h2>
+      <div id="reportes-contenido"></div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Gestión de Inventarios y Ventas</p>
+    </footer>
+  </body>
 </html>
